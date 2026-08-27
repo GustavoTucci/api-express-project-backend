@@ -1,0 +1,12 @@
+{
+  "name": "projeto-express-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node api.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.2.1"
+  }
+}
