@@ -1,36 +1,33 @@
 # API de Data e Hora
 
-API REST desenvolvida com Node.js e Express para disponibilizar a data e a hora atuais em formato JSON. O serviço possui suporte a CORS e está preparado para execução local ou hospedagem no Render.
+API REST leve para consulta da data e hora atuais. Desenvolvida com Node.js e Express, com CORS habilitado para integração com o frontend publicado no Vercel.
 
-## Tecnologias
+| Ambiente | Endereço |
+| --- | --- |
+| Repositório | [github.com/GustavoTucci/api-express-project-backend](https://github.com/GustavoTucci/api-express-project-backend) |
+| Produção | [api-express-project-backend.onrender.com](https://api-express-project-backend.onrender.com) |
+| Frontend integrado | [api-express-project-frontend.vercel.app](https://api-express-project-frontend.vercel.app/) |
 
-- Node.js
+## Stack
+
+- Node.js 18+
 - Express 5
 - CORS
 
-## Pré-requisitos
-
-- Node.js 18 ou superior
-- npm
-
-## Instalação e execução
-
-Clone o repositório, acesse a pasta do projeto e instale as dependências:
+## Início rápido
 
 ```bash
 npm install
 npm start
 ```
 
-Por padrão, o servidor será iniciado em `http://localhost:3000`.
+O servidor local será executado em `http://localhost:3000`.
 
-## API
+## Endpoint
 
-### Consultar data e hora
+### `GET /`
 
-`GET /`
-
-Exemplo de resposta:
+Retorna a data e a hora formatadas para o padrão brasileiro:
 
 ```json
 {
@@ -39,30 +36,25 @@ Exemplo de resposta:
 }
 ```
 
-### Códigos de resposta
-
-| Código | Descrição |
+| Status | Significado |
 | --- | --- |
-| `200` | Consulta realizada com sucesso |
+| `200 OK` | Consulta realizada com sucesso |
+
+Teste a API em produção pelo link: [Consultar data e hora](https://api-express-project-backend.onrender.com/).
 
 ## Configuração
 
-O servidor utiliza a variável de ambiente `PORT`. Quando ela não está definida, a porta `3000` é utilizada automaticamente.
+O servidor utiliza `process.env.PORT`, fornecida automaticamente pelo Render. Em ambiente local, o valor padrão é `3000`.
 
-## Deploy no Render
+## Deploy
 
-1. Crie um novo **Web Service** no Render.
-2. Conecte o repositório deste backend.
-3. Configure o ambiente como **Node**.
-4. Use `npm install` em **Build Command**.
-5. Use `npm start` em **Start Command**.
-6. Confirme a criação do serviço.
+Para publicar este repositório no Render, crie um **Web Service** e configure:
 
-O Render define a variável `PORT` automaticamente. Após a publicação, a API estará disponível em uma URL semelhante a:
+- **Runtime:** Node
+- **Build Command:** `npm install`
+- **Start Command:** `npm start`
 
-```text
-https://api-express-project-backend.onrender.com
-```
+O CORS está habilitado para permitir chamadas feitas por aplicações hospedadas em outro domínio.
 
 ## Estrutura
 
@@ -71,6 +63,7 @@ backend/
 ├── api.js
 ├── package.json
 ├── package-lock.json
+├── .gitignore
 └── README.md
 ```
 
